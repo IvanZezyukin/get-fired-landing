@@ -15,5 +15,5 @@ const showMessage = (arrayOfMessages, indexOfMessage) => {
 // };
 
 for (let i = 0; i < messages.length; i++) {
-    setTimeout(showMessage, 1200 * i, messages, i);
+    setTimeout(showMessage, 2000 * i, messages, i);
 };
