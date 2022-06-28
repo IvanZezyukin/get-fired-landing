@@ -1,19 +1,36 @@
 let messages = document.querySelectorAll(".message-line");
 
+// функция отображает сообщение и скроллит к нему
 const showMessage = (arrayOfMessages, indexOfMessage) => {
     arrayOfMessages[indexOfMessage].classList.add('show');
-    window.scrollTo(0, document.body.scrollHeight);
+    console.log(arrayOfMessages[indexOfMessage].offsetTop);
+    // ниже реализован скролл к появляющимся элементам
+    const halfWindowInnerHeight = window.innerHeight / 2;
+    const heightToTopFromLine = arrayOfMessages[indexOfMessage].offsetTop;
+    const yScrollTo = heightToTopFromLine - halfWindowInnerHeight;
+    window.scrollTo(0, yScrollTo);
 };
 
-// При добавлении функции рамдомной генерации времени появления сообщений, они иногда начали появляться не в своем порядке... Если захотим прикрутить это, надо будет подумать над правильной реализацией
-// function getRandomArbitrary(min = 1000, max = 2000) {
-//     return Math.random() * (max - min) + min;
-// };
-// const getRandomTiming = (multiplier = 1) => {
-//     console.log(getRandomArbitrary() * multiplier)
-//     return getRandomArbitrary() * multiplier;
-// };
+let countOfShowedMessages = 0;
 
-for (let i = 0; i < messages.length; i++) {
-    setTimeout(showMessage, 2000 * i, messages, i);
-};
+// функция которая запускает отображение следующего сообщения
+const showNextMessage = () => {
+    showMessage(messages, countOfShowedMessages);
+    countOfShowedMessages += 1;
+}
+
+// показываем автоматически первые три сообщения
+for (let i = 0; i < 3; i++) {
+    setTimeout(showNextMessage, 1000 * i);
+}
+
+// получаем объект кнопки
+const downButton = document.getElementById('down-button');
+// слушаем нажатие на кнопку и вызываем функцию обработчик
+downButton.addEventListener("click", showNextMessage);
+
+// надо будет доделать
+// дизейблим кнопку если прощелкали донизу
+if (countOfShowedMessages >= 14) {
+    downButton.classList.add('button-disable');
+}
