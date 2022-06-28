@@ -15,16 +15,8 @@ html {
     animation: show 1s ease-in-out forwards;
 }
 
-/*.down-button {*/
-/*    position: fixed;*/
-/*    bottom: 0;*/
-/*    left: 0;*/
-/*    right: 0;*/
-/*    height: 100px;*/
-/*    width: 200px;*/
-/*}*/
-
 button {
+    margin-top: 30px;
     margin-bottom: 30px;
     font-size: 15px;
     color: #fff;
@@ -47,10 +39,9 @@ button:hover {
 }
 
 .button-div {
-    position: fixed;
+    position: absolute;
     display: flex;
     z-index: 1;
-    bottom: 0;
     left: 0;
     right: 0;
     justify-content: center;

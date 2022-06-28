@@ -1,9 +1,14 @@
 let messages = document.querySelectorAll(".message-line");
+let buttonDiv = document.getElementsByClassName("button-div");
 
 // функция отображает сообщение и скроллит к нему
 const showMessage = (arrayOfMessages, indexOfMessage) => {
     arrayOfMessages[indexOfMessage].classList.add('show');
     console.log(arrayOfMessages[indexOfMessage].offsetTop);
+    const pixelsFromTopToTop = arrayOfMessages[indexOfMessage].offsetTop;
+    const pixelsOfHeightOfElement = arrayOfMessages[indexOfMessage].offsetHeight;
+    const pixelsForButton = pixelsFromTopToTop + pixelsOfHeightOfElement;
+    buttonDiv[0].style.top = `${pixelsForButton}px`;
     // ниже реализован скролл к появляющимся элементам
     const halfWindowInnerHeight = window.innerHeight / 2;
     const heightToTopFromLine = arrayOfMessages[indexOfMessage].offsetTop;
