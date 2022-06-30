@@ -4,16 +4,25 @@ let buttonDiv = document.getElementsByClassName("button-div");
 // функция отображает сообщение и скроллит к нему
 const showMessage = (arrayOfMessages, indexOfMessage) => {
     arrayOfMessages[indexOfMessage].classList.add('show');
+
     console.log(arrayOfMessages[indexOfMessage].offsetTop);
+
+    // ниже я реализую отступ от верха для кнопки при каждом новом сообщении
     const pixelsFromTopToTop = arrayOfMessages[indexOfMessage].offsetTop;
     const pixelsOfHeightOfElement = arrayOfMessages[indexOfMessage].offsetHeight;
     const pixelsForButton = pixelsFromTopToTop + pixelsOfHeightOfElement;
     buttonDiv[0].style.top = `${pixelsForButton}px`;
+
+    // скролл к центру каждого нового сообщения
+    arrayOfMessages[indexOfMessage].scrollIntoView({block: "center", behavior: "smooth"});
+
     // ниже реализован скролл к появляющимся элементам
-    const halfWindowInnerHeight = window.innerHeight / 2;
-    const heightToTopFromLine = arrayOfMessages[indexOfMessage].offsetTop;
-    const yScrollTo = heightToTopFromLine - halfWindowInnerHeight;
-    window.scrollTo(0, yScrollTo);
+    // const halfWindowInnerHeight = window.innerHeight / 2;
+    // const halfElementHeight = arrayOfMessages[indexOfMessage].offsetHeight;
+    //
+    // const heightToTopFromLine = arrayOfMessages[indexOfMessage].offsetTop;
+    // const yScrollTo = heightToTopFromLine - halfWindowInnerHeight;
+    // window.scrollTo(0, yScrollTo);
 };
 
 let countOfShowedMessages = 0;
