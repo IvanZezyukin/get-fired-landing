@@ -15,14 +15,6 @@ const showMessage = (arrayOfMessages, indexOfMessage) => {
 
     // скролл к центру каждого нового сообщения
     arrayOfMessages[indexOfMessage].scrollIntoView({block: "center", behavior: "smooth"});
-
-    // ниже реализован скролл к появляющимся элементам
-    // const halfWindowInnerHeight = window.innerHeight / 2;
-    // const halfElementHeight = arrayOfMessages[indexOfMessage].offsetHeight;
-    //
-    // const heightToTopFromLine = arrayOfMessages[indexOfMessage].offsetTop;
-    // const yScrollTo = heightToTopFromLine - halfWindowInnerHeight;
-    // window.scrollTo(0, yScrollTo);
 };
 
 let countOfShowedMessages = 0;
