@@ -1,6 +1,19 @@
 let messages = document.querySelectorAll(".message-line");
 let buttonDiv = document.getElementsByClassName("button-div");
 
+// функция которая запускает отображение следующего сообщения
+const showNextMessage = () => {
+    showMessage(messages, countOfShowedMessages);
+    countOfShowedMessages += 1;
+}
+
+// получаем объект кнопки
+const downButton = document.getElementById('down-button');
+// слушаем нажатие на кнопку и вызываем функцию обработчик
+downButton.addEventListener("click", showNextMessage);
+
+const registerUser = () => alert('user registred');
+
 // функция отображает сообщение и скроллит к нему
 const showMessage = (arrayOfMessages, indexOfMessage) => {
     arrayOfMessages[indexOfMessage].classList.add('show');
@@ -15,28 +28,30 @@ const showMessage = (arrayOfMessages, indexOfMessage) => {
 
     // скролл к центру каждого нового сообщения
     arrayOfMessages[indexOfMessage].scrollIntoView({block: "center", behavior: "smooth"});
+
+    // меняем кнопку если прощелкали донизу
+    if (indexOfMessage >= 13) {
+        downButton.innerText = 'ЗАРЕГИСТРИРОВАТЬСЯ';
+        downButton.removeEventListener("click", showNextMessage);
+        downButton.addEventListener('click', registerUser);
+    }
 };
 
 let countOfShowedMessages = 0;
-
-// функция которая запускает отображение следующего сообщения
-const showNextMessage = () => {
-    showMessage(messages, countOfShowedMessages);
-    countOfShowedMessages += 1;
-}
 
 // показываем автоматически первые три сообщения
 for (let i = 0; i < 3; i++) {
     setTimeout(showNextMessage, 1000 * i);
 }
 
-// получаем объект кнопки
-const downButton = document.getElementById('down-button');
-// слушаем нажатие на кнопку и вызываем функцию обработчик
-downButton.addEventListener("click", showNextMessage);
-
-// надо будет доделать
-// дизейблим кнопку если прощелкали донизу
-if (countOfShowedMessages >= 14) {
-    downButton.classList.add('button-disable');
+// присваиваем хедеру новый класс при сролле
+function updateScroll() {
+    if (window.scrollY > 0) {
+        let header = document.querySelector("header");
+        header.classList.add("header__scrolled");
+    } else {
+        let header = document.querySelector("header");
+        header.classList.remove("header__scrolled");
+    };
 }
+window.addEventListener("scroll", updateScroll);

@@ -20,9 +20,9 @@ button {
     margin-bottom: 30px;
     font-size: 15px;
     color: #fff;
-    background-color: black;
+    background-color: #0066FF;
     border: none;
-    border-radius: 15px;
+    border-radius: 10px;
     cursor: pointer;
     box-shadow: 0 16px 36px rgb(52 213 68 / 22%);
     padding: 15px;
@@ -34,7 +34,7 @@ button {
 }
 
 button:hover {
-    background-color: #f6980c;
+    background-color: #0011ff;
     box-shadow: 0 16px 36px rgba(246 152 12 / 20%);
 }
 
@@ -138,11 +138,26 @@ button:hover {
     margin: 0 auto;
 }
 .header {
-    height: 100px;
+    height: 80px;
     margin: 0 0 50px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    background-color: transparent;
+    top: 0;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    transition: 0.25s ease;
+}
+.header__scrolled {
+    background-color: rgba(0,0,0, 0.1);
+    box-shadow: 0 12px 34px -11px rgb(0 0 0 / 12%);
 }
 body {
     margin: 0;
+    padding-top: 150px;
     color: white;
     font-size: 30px;
     font-family: Roboto, sans-serif;
