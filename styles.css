@@ -272,7 +272,8 @@ body {
 }
 @media (max-width: 720px) {
     body {
-        font-size: 40px;
+        font-size: 20px;
+        padding-top: 80px;
     }
     .circle-right::after {
         display: none;
@@ -281,19 +282,21 @@ body {
         display: none;
     }
     button {
-        margin-top: 40px;
-        height: 80px;
+        height: 75px;
+        width: 300px;
         line-height: 25px;
-        font-size: 25px;
+        font-size: 18px;
     }
     .form_button {
-        height: 80px;
+        height: 75px;
         line-height: 25px;
-        font-size: 25px;
+        font-size: 18px;
+        width: 300px;
     }
     .form_input {
         height: 45px;
-        font-size: 25px;
+        font-size: 18px;
+        width: 265px;
     }
     .form_label {
         font-size: 20px;
@@ -305,4 +308,40 @@ body {
         font-size: 20px;
         line-height: 30px;
     }
+    .popup {
+        margin-left: -170px;
+        margin-top: -200px;
+    }
+    .form_success {
+        max-width: 300px;
+    }
+    .header {
+        position: absolute;
+    }
+    .circle {
+        width: 70px;
+        min-width: 70px;
+        height: 70px;
+        background-size: 50px;
+    }
+    .circle::after {
+        left: 50px;
+        top: 16px;
+    }
+    .circle-right {
+        width: 70px;
+        min-width: 70px;
+        height: 70px;
+        background-size: 50px;
+    }
+    .circle-right::before {
+        left: -20px;
+        top: 16px;
+    }
+    .header {
+        margin-bottom: 20px;
+    }
+    .message-line {
+        margin-top: 10px;
+        margin-bottom: 10px;
 }
