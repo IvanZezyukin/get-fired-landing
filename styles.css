@@ -18,15 +18,20 @@ html {
 button {
     margin-top: 30px;
     margin-bottom: 30px;
-    font-size: 15px;
     color: #fff;
     background-color: #0066FF;
     border: none;
-    border-radius: 10px;
     cursor: pointer;
     box-shadow: 0 16px 36px rgb(52 213 68 / 22%);
     padding: 15px;
     transition: background-color 0.3s ease-in;
+    height: 56px;
+    width: 390px;
+    font-weight: 500;
+    line-height: 20px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 4px;
 }
 
 .button-disable {
@@ -95,7 +100,7 @@ button:hover {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    min-width: 400px;
+    /*min-width: 400px;*/
     max-width: 700px;
     border-radius: 10px;
     margin: 10px;
@@ -264,4 +269,40 @@ body {
     font-size: 16px;
     line-height: 20px;
     text-align: center;
+}
+@media (max-width: 720px) {
+    body {
+        font-size: 40px;
+    }
+    .circle-right::after {
+        display: none;
+    }
+    .circle::before {
+        display: none;
+    }
+    button {
+        margin-top: 40px;
+        height: 80px;
+        line-height: 25px;
+        font-size: 25px;
+    }
+    .form_button {
+        height: 80px;
+        line-height: 25px;
+        font-size: 25px;
+    }
+    .form_input {
+        height: 45px;
+        font-size: 25px;
+    }
+    .form_label {
+        font-size: 20px;
+    }
+    .form_header {
+        font-size: 40px;
+    }
+    .form_success {
+        font-size: 20px;
+        line-height: 30px;
+    }
 }
