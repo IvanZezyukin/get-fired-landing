@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<!--    <meta http-equiv="content-type" content="application/x-www-form-urlencoded">-->
     <title>TheNumber - финансовый план онлайн</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="./src/favicon.ico"><!-- 32×32 -->
@@ -147,6 +148,25 @@
                 Надо зарегистрироваться и получить индивидуальный план. Стоимость – 1000 ₽
             </div>
         </div>
+    </div>
+</div>
+
+<div class="popup" id="popup">
+    <p class="form_header">Регистрация</p>
+    <form id="form" action="http://127.0.0.1:1337/" method="POST">
+        <div>
+            <label for="mail" class="form_label">Ваш e-mail:</label>
+            <input type="email" name="user_email" id="mail" placeholder="Укажите ваш e-mail..." class="form_input">
+        </div>
+        <div>
+            <button type="submit" class="form_button">Отправить</button>
+            <div id="loader" class="hidden">Отправляем...</div>
+        </div>
+    </form>
+    <a href="#" onclick="hidePopUp()" class="form_close"><img src="./src/close.png" width="20px"></a>
+    <div class="form_success" id="form_success">
+        <p>Спасибо, E-mail отправлен!</p>
+        <p>Сервис находится на финальном этапе тестирования, мы пришлем вам приглашение, когда откроем доступ для пользователей</p>
     </div>
 </div>
 
